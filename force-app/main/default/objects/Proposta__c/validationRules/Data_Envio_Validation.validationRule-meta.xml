@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Envio_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>Data_Envio__c &lt; TODAY()</errorConditionFormula>
+    <errorDisplayField>Data_Envio__c</errorDisplayField>
+    <errorMessage>A data de envio não pode ser anterior à data de hoje.</errorMessage>
+</ValidationRule>

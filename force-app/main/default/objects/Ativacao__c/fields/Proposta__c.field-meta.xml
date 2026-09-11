@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proposta__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Proposta aprovada</description>
+    <label>Proposta</label>
+    <referenceTo>Proposta__c</referenceTo>
+    <relationshipLabel>Ativações</relationshipLabel>
+    <relationshipName>Ativacao_Proposta_Relationship</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

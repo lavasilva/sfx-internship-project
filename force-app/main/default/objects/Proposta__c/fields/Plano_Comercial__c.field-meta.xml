@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plano_Comercial__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Plano selecionado</description>
+    <label>Plano Comercial</label>
+    <referenceTo>Plano_Comercial__c</referenceTo>
+    <relationshipLabel>Propostas</relationshipLabel>
+    <relationshipName>Proposta_Plano_Relationship</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

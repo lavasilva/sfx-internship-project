@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PME</fullName>
+    <active>true</active>
+    <description>Propostas para pequenas e médias empresas</description>
+    <label>PME</label>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Aprovada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enviada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rascunho</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recusada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sem Resposta</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
