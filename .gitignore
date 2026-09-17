@@ -46,3 +46,7 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+# Local planning notes and manifests (not part of deployable source)
+plan.md
+manifest/

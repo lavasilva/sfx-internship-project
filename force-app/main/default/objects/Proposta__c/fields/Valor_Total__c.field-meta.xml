@@ -3,7 +3,7 @@
     <fullName>Valor_Total__c</fullName>
     <formula>Numero_Colaboradores__c * Plano_Comercial__r.Valor_Por_Vida__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Valor Total</label>
+    <label>Valor Total (Formula)</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>

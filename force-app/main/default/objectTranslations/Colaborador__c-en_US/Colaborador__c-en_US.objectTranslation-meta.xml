@@ -13,8 +13,4 @@
         <errorMessage><!-- O CPF deve ter exatamente 11 números. --></errorMessage>
         <name>CPF_Validation</name>
     </validationRules>
-    <validationRules>
-        <errorMessage><!-- Update bloqueado propositalmente para teste do Fault Path --></errorMessage>
-        <name>TESTE_Bloquear_Update_Temporario</name>
-    </validationRules>
 </CustomObjectTranslation>

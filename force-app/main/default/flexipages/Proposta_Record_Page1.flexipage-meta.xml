@@ -120,10 +120,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Valor_Total__c</fieldItem>
-                <identifier>RecordValor_Total_cField</identifier>
+                <fieldItem>Record.Valor_Total_Calculado__c</fieldItem>
+                <identifier>RecordValor_Total_Calculado_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Status__c}</leftValue>
@@ -141,10 +141,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Valor_Total__c</fieldItem>
-                <identifier>RecordValor_Total_cField2</identifier>
+                <fieldItem>Record.Valor_Total_Calculado__c</fieldItem>
+                <identifier>RecordValor_Total_Calculado_cField2</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Status__c}</leftValue>

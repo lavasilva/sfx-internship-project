@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valor_Total_Calculado__c</fullName>
+    <description>Valor total calculado via Apex (PropostaService.calcularValorTotal), a partir de Numero_Colaboradores__c e do Valor_Por_Vida__c do Plano Comercial vinculado. Criado no Módulo 6 porque Valor_Total__c é campo fórmula e não pode ser gravado via DML.</description>
+    <label>Valor Total</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>
