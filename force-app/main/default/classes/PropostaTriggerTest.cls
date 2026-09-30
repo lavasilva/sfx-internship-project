@@ -97,4 +97,29 @@ private class PropostaTriggerTest {
 
         System.assertEquals(200, [SELECT COUNT() FROM Proposta__c WHERE Status__c = 'Rascunho']);
     }
+
+    @isTest
+    static void testEditarRascunhoExistenteNaoSeBloqueia() {
+        Opportunity opp = [SELECT Id, AccountId FROM Opportunity LIMIT 1];
+        Plano_Comercial__c plano = [SELECT Id FROM Plano_Comercial__c LIMIT 1];
+
+        Proposta__c jaEraRascunho = TestDataFactory.createProposta(opp, plano);
+
+        Opportunity outraOpp = TestDataFactory.createOpportunity(new Account(Id = opp.AccountId));
+        Proposta__c vaiVirarRascunho = TestDataFactory.createProposta(outraOpp, plano);
+        vaiVirarRascunho.Status__c = 'Enviada';
+        update vaiVirarRascunho;
+
+        jaEraRascunho.Numero_Colaboradores__c = 20;
+        vaiVirarRascunho.Status__c = 'Rascunho';
+
+        Test.startTest();
+        update new List<Proposta__c>{ jaEraRascunho, vaiVirarRascunho };
+        Test.stopTest();
+
+        Proposta__c resultado = [SELECT Valor_Total_Calculado__c FROM Proposta__c WHERE Id = :jaEraRascunho.Id];
+        System.assertEquals(2000, resultado.Valor_Total_Calculado__c, 'Editar um Rascunho existente não pode ser bloqueado');
+        System.assertEquals('Rascunho', [SELECT Status__c FROM Proposta__c WHERE Id = :vaiVirarRascunho.Id].Status__c);
+    }
+
 }

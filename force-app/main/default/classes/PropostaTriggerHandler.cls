@@ -10,9 +10,9 @@ public with sharing class PropostaTriggerHandler {
         }
     }
 
-    public void beforeInsert(List<Proposta__c> novasPropostas) {
-        validarUnicidadeRascunho(novasPropostas, null);
-        PropostaService.calcularValorTotal(novasPropostas);
+    public void beforeInsert(List<Proposta__c> propostasNovas) {
+        validarUnicidadeRascunho(propostasNovas, null);
+        PropostaService.calcularValorTotal(propostasNovas);
     }
 
     public void beforeUpdate(List<Proposta__c> propostasNovas, Map<Id, Proposta__c> propostasAntigas) {
