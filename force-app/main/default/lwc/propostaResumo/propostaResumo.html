@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Resumo da Proposta" icon-name="standard:contract">
+        <div class="slds-var-p-horizontal_medium">
+            <template lwc:if={isLoading}>
+                <div class="slds-is-relative slds-var-p-vertical_large">
+                    <lightning-spinner alternative-text="Carregando proposta" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:elseif={hasError}>
+                <div class="slds-text-color_error" role="alert">
+                    <lightning-icon icon-name="utility:error" size="x-small" variant="error" class="slds-var-m-right_x-small"></lightning-icon>
+                    {errorMessage}
+                </div>
+            </template>
+
+            <template lwc:elseif={hasData}>
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate">Status</dt>
+                    <dd class="slds-item_detail slds-var-m-bottom_x-small">
+                        <template lwc:if={status}>
+                            <span class={statusBadgeClass}>{status}</span>
+                        </template>
+                        <template lwc:else>—</template>
+                    </dd>
+
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate">Valor total</dt>
+                    <dd class="slds-item_detail slds-var-m-bottom_x-small">
+                        <template lwc:if={valorTotal}>
+                            <lightning-formatted-number value={valorTotal} format-style="currency" currency-code={currencyCode}></lightning-formatted-number>
+                        </template>
+                        <template lwc:else>—</template>
+                    </dd>
+
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate">Plano</dt>
+                    <dd class="slds-item_detail">{planoNome}</dd>
+                </dl>
+            </template>
+        </div>
+    </lightning-card>
+</template>

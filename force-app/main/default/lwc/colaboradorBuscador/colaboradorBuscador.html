@@ -1,0 +1,73 @@
+<template>
+    <lightning-quick-action-panel header="Buscar Colaboradores">
+        <div class="slds-is-relative">
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Buscando colaboradores" size="small"></lightning-spinner>
+            </template>
+
+            <div class="slds-grid slds-grid_vertical-align-end slds-gutters_x-small">
+                <div class="slds-col slds-grow">
+                    <lightning-input
+                        type="search"
+                        label="Nome do colaborador"
+                        placeholder="Digite parte do nome"
+                        value={termo}
+                        onchange={handleTermoChange}
+                        onkeyup={handleKeyUp}
+                    ></lightning-input>
+                </div>
+                <div class="slds-col slds-no-flex">
+                    <lightning-button label="Pesquisar" variant="brand" onclick={handlePesquisar} disabled={isLoading}></lightning-button>
+                </div>
+            </div>
+
+            <template lwc:if={errorMessage}>
+                <div class="slds-var-m-top_small slds-text-color_error" role="alert">
+                    <lightning-icon icon-name="utility:error" size="x-small" variant="error" class="slds-var-m-right_x-small"></lightning-icon>
+                    {errorMessage}
+                </div>
+            </template>
+
+            <template lwc:if={semResultados}>
+                <p class="slds-var-m-top_small slds-text-color_weak">Nenhum colaborador encontrado para esta busca.</p>
+            </template>
+
+            <template lwc:if={temResultados}>
+                <p class="slds-var-m-top_small slds-text-color_weak">{quantidadeLabel}</p>
+                <ul class="slds-var-m-top_x-small">
+                    <template for:each={itens} for:item="item">
+                        <li key={item.colaborador.Id} class="slds-var-m-bottom_x-small">
+                            <c-colaborador-card
+                                colaborador={item.colaborador}
+                                selected={item.selected}
+                                onselecionarcolaborador={handleSelecionarColaborador}
+                            ></c-colaborador-card>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <template lwc:if={selecionado}>
+                <div class="slds-var-m-top_medium slds-box slds-theme_default">
+                    <h3 class="slds-text-heading_small slds-var-m-bottom_small">Detalhes do colaborador selecionado</h3>
+                    <dl class="slds-list_horizontal slds-wrap">
+                        <dt class="slds-item_label slds-text-color_weak">Nome</dt>
+                        <dd class="slds-item_detail">{selecionado.Nome_Completo__c}</dd>
+                        <dt class="slds-item_label slds-text-color_weak">E-mail</dt>
+                        <dd class="slds-item_detail">{selecionado.Email_Corporativo__c}</dd>
+                        <dt class="slds-item_label slds-text-color_weak">Elegibilidade</dt>
+                        <dd class="slds-item_detail">{selecionado.Status_Elegibilidade__c}</dd>
+                        <dt class="slds-item_label slds-text-color_weak">Data de inclusão</dt>
+                        <dd class="slds-item_detail">
+                            <lightning-formatted-date-time value={selecionado.Data_Inclusao__c} year="numeric" month="2-digit" day="2-digit" time-zone="UTC"></lightning-formatted-date-time>
+                        </dd>
+                    </dl>
+                </div>
+            </template>
+        </div>
+
+        <div slot="footer">
+            <lightning-button label="Fechar" variant="neutral" onclick={handleFechar}></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

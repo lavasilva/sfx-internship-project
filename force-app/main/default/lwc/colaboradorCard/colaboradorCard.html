@@ -1,0 +1,21 @@
+<template>
+    <div
+        class={containerClass}
+        role="button"
+        tabindex="0"
+        aria-pressed={selected}
+        onclick={handleSelecionar}
+        onkeydown={handleKeyDown}
+    >
+        <div class="slds-col slds-truncate">
+            <p class="slds-text-heading_small slds-truncate" title={nome}>{nome}</p>
+            <p class="slds-text-body_small slds-text-color_weak slds-truncate" title={email}>{email}</p>
+        </div>
+        <div class="slds-col slds-no-flex slds-var-m-horizontal_small">
+            <span class={statusBadgeClass}>{status}</span>
+        </div>
+        <div class="slds-col slds-no-flex">
+            <lightning-button label="Ver Registro" variant="neutral" onclick={handleVerRegistro}></lightning-button>
+        </div>
+    </div>
+</template>
