@@ -33,7 +33,10 @@
                     </dd>
 
                     <dt class="slds-item_label slds-text-color_weak slds-truncate">Plano</dt>
-                    <dd class="slds-item_detail">{planoNome}</dd>
+                    <dd class="slds-item_detail">
+                        <template lwc:if={planoNome}>{planoNome}</template>
+                        <template lwc:else>—</template>
+                    </dd>
                 </dl>
             </template>
         </div>

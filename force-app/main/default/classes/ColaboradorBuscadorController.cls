@@ -16,9 +16,9 @@ public with sharing class ColaboradorBuscadorController {
                        Status_Elegibilidade__c, Data_Inclusao__c
                 FROM Colaborador__c
                 WHERE Account__c = :accountId
-                AND Nome_Completo__c LIKE :filtro
+                AND (Name LIKE :filtro OR Nome_Completo__c LIKE :filtro)
                 WITH USER_MODE
-                ORDER BY Nome_Completo__c
+                ORDER BY Name
                 LIMIT :LIMITE_RESULTADOS
             ];
         } catch (QueryException e) {

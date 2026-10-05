@@ -25,6 +25,10 @@ export default class ColaboradorBuscador extends LightningElement {
         return total === 1 ? '1 colaborador encontrado' : `${total} colaboradores encontrados`;
     }
 
+    get nomeSelecionado() {
+        return this.selecionado?.Nome_Completo__c || this.selecionado?.Name;
+    }
+
     get itens() {
         return this.colaboradores.map((colaborador) => ({
             colaborador,

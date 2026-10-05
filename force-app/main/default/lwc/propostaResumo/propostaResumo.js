@@ -3,7 +3,7 @@ import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import CURRENCY from '@salesforce/i18n/currency';
 import STATUS_FIELD from '@salesforce/schema/Proposta__c.Status__c';
 import VALOR_TOTAL_FIELD from '@salesforce/schema/Proposta__c.Valor_Total__c';
-import PLANO_NOME_FIELD from '@salesforce/schema/Proposta__c.Plano_Comercial__r.Nome__c';
+import PLANO_NOME_FIELD from '@salesforce/schema/Proposta__c.Plano_Comercial__r.Name';
 
 const BADGE_POR_STATUS = {
     Rascunho: 'slds-badge',

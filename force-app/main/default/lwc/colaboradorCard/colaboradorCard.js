@@ -12,11 +12,7 @@ export default class ColaboradorCard extends NavigationMixin(LightningElement) {
     @api selected = false;
 
     get nome() {
-        return this.colaborador?.Nome_Completo__c;
-    }
-
-    get email() {
-        return this.colaborador?.Email_Corporativo__c;
+        return this.colaborador?.Nome_Completo__c || this.colaborador?.Name;
     }
 
     get status() {

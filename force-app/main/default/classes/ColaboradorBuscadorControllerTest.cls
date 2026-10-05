@@ -31,6 +31,22 @@ private class ColaboradorBuscadorControllerTest {
     }
 
     @isTest
+    static void testBuscaPeloCampoNameQuandoNomeCompletoVazio() {
+        Account conta = contaComColaboradores();
+        insert new Colaborador__c(
+            Name = 'Gilberto',
+            Account__c = conta.Id,
+            CPF__c = '88888888888',
+            Status_Elegibilidade__c = 'Pendente'
+        );
+
+        List<Colaborador__c> resultado = ColaboradorBuscadorController.buscarColaboradores(conta.Id, 'Gil');
+
+        System.assertEquals(1, resultado.size(), 'Deve encontrar pelo Name mesmo sem Nome_Completo__c');
+        System.assertEquals('Gilberto', resultado[0].Name);
+    }
+
+    @isTest
     static void testBuscaSemTermoRetornaTodosDaConta() {
         Account conta = contaComColaboradores();
 
